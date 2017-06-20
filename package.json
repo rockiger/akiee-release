@@ -1,0 +1,51 @@
+{
+  "name": "akiee",
+  "version": "0.0.4",
+  "description": "A Markdown-based task manager for hackers and people who build stuff.",
+  "author": "Marco Laspe <marco@rockiger.com>",
+  "build": {
+    "appId": "com.rockiger.akiee",
+    "asar": true,
+    "mac": {
+      "category": "public.app-category.productivity"
+    },
+    "dmg": {
+      "contents": [
+        {
+          "x": 110,
+          "y": 150
+        },
+        {
+          "x": 240,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "linux": {
+      "packageCategory": "akiee",
+      "target": [
+        "AppImage",
+        "deb",
+        "freebsd",
+        "pacman",
+        "tar.bz2"
+      ]
+    }
+  },
+  "devDependencies": {
+    "closurecompiler-externs": "^1.0.4",
+    "devtron": "^1.4.0",
+    "electron-packager": "^8.5.1",
+    "grunt": "^1.0.1",
+    "grunt-download-electron": "^2.1.4"
+  },
+  "scripts": {
+    "pack": "build --dir",
+    "dist": "build",
+    "postinstall": "install-app-deps"
+  },
+  "license": "GPL2",
+  "repository": "https://github.com/rockiger/akiee"
+}

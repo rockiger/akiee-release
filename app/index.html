@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Akiee</title>
+    <link rel="stylesheet" type="text/css" href="./css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="./css/datepicker3.min.css" />
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <script type="text/javascript">
+        var gnomeExternalCss='./css/gnome.css';
+        var ubuntuExternalCss='./css/ubuntu.css';
+        var osxExternalCss = './css/maverix.css';
+        var winExternalCss = './css/metro-bootstrap.css';
+        var cssUrl = '';
+
+        if (process.platform === 'linux' /*process.env.DESKTOP_SESSION === "gnome"*/) {
+            cssUrl = gnomeExternalCss;
+            // var gui = require('nw.gui');
+            // var win = gui.Window.get();
+            // //win.setTransparent(true);
+            console.log("gnome");
+        } else if (process.env.DESKTOP_SESSION === "ubuntu" || process.env.DESKTOP_SESSION === 'ubuntu-2d') {
+            cssUrl = ubuntuExternalCss;
+        } else if (process.platform === 'darwin') {
+            cssUrl = osxExternalCss;
+            var gui = require('nw.gui');
+            var mb = new gui.Menu({type: 'menubar'});
+            mb.createMacBuiltin('Akiee', {
+                hideEdit: false,
+            });
+            gui.Window.get().menu = mb;
+        } else if (process.platform === 'win32') {
+            cssUrl = winExternalCss;
+        }
+
+        if (cssUrl) {
+            document.write('<link rel="stylesheet" type="text/css" href="'+ cssUrl +'">');
+        }
+    </script>
+  </head>
+  <body>
+    <div id="root">
+    </div>
+        <input style="display:none;" id="save-location-dialog" type="file" nwdirectory />
+        <input style="display:none;" id="open-location-dialog" type="file" nwdirectory />
+        <script src="./lib/jquery.js"></script>
+        <script src="./lib/bootstrap.js"></script>
+        <script src="./lib/bootstrap-datepicker.min.js"></script>
+        <script src="./lib/marked.js"></script>
+
+    <script type="text/javascript" src="js/front.js" charset="utf-8"></script>
+  </body>
+</html>

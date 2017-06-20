@@ -1,0 +1,11 @@
+{
+  "name": "akiee",
+  "version": "0.0.4",
+  "description": "A Markdown-based task manager for hackers and people who build stuff.",
+  "author": "Marco Laspe <marco@rockiger.com>",
+  "main": "js/main.js",
+  "dependencies" :
+    {
+      "underscore": "latest"
+    }
+}
